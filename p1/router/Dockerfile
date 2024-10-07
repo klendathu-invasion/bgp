@@ -1,5 +1,5 @@
 FROM frrouting/frr:v8.4.1
 RUN apk add busybox
 RUN echo 'service integrated-vtysh-config' > /etc/frr/vtysh.conf
-CP ./daemons /etc/frr/daemons
+COPY ./daemons /etc/frr/daemons
 
