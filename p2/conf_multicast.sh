@@ -14,7 +14,7 @@ for c_id in ${containers[@]}; do
 	elif [[ $hostname == "router_lsirigna-1" ]]; then
 		docker exec $c_id sh -c "ip addr add 10.1.1.1/24 dev eth0" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip addr add 30.1.1.3/24 dev eth1" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 group 40.1.1.1 dstport 4789" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 group 239.1.1.1 dstport 4789" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
@@ -23,7 +23,7 @@ for c_id in ${containers[@]}; do
 	elif [[ $hostname == "router_lsirigna-2" ]]; then
 		docker exec $c_id sh -c "ip addr add 10.1.1.2/24 dev eth0" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip addr add 30.1.1.4/24 dev eth1" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 group 40.1.1.1 dstport 4789" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 group 239.1.1.1 dstport 4789" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo "${GREEN}OK${END}" || echo "${RED}KO${END}"
