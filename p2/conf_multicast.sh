@@ -1,8 +1,8 @@
 #!/bin/bash
 
-RED="\e[31m"
-GREEN="\e[32m"
-END="\e[0m"
+RED="\033[1;91m"
+GREEN="\033[1;92m"
+END="\033[0m"
 
 containers=$(docker ps -q)
 for c_id in ${containers[@]}; do
