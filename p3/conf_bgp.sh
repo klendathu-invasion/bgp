@@ -21,7 +21,7 @@ for c_id in ${containers[@]}; do
 		docker exec $c_id sh -c "brctl addif br0 eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "brctl addif br0 vxlan10" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 
-		docker cp ./config/router_1.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
+		docker cp ./vtysh/router_1.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
 		docker exec $c_id ash /vtysh.conf && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	elif [[ $hostname == "router_lsirigna-2" ]]; then
 		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
@@ -31,7 +31,7 @@ for c_id in ${containers[@]}; do
 		docker exec $c_id sh -c "brctl addif br0 eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "brctl addif br0 vxlan10" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 
-		docker cp ./config/router_2.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
+		docker cp ./vtysh/router_2.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
 		docker exec $c_id ash /vtysh.conf && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	elif [[ $hostname == "router_lsirigna-3" ]]; then
 		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
@@ -41,10 +41,10 @@ for c_id in ${containers[@]}; do
 		docker exec $c_id sh -c "brctl addif br0 eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "brctl addif br0 vxlan10" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 
-		docker cp ./config/router_3.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
+		docker cp ./vtysh/router_3.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
 		docker exec $c_id ash /vtysh.conf && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	elif [[ $hostname == "router_lsirigna-4" ]]; then
-		docker cp ./config/router_spine.vtysh $c_id:/vtysh.conf
+		docker cp ./vtysh/router_spine.vtysh $c_id:/vtysh.conf
 		docker exec $c_id ash /vtysh.conf && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	fi
 done
