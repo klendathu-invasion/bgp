@@ -1,4 +1,4 @@
-configure
+configure terminal
 no ipv6 forwarding
 
 interface eth0
