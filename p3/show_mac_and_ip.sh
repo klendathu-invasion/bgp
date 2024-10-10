@@ -8,6 +8,7 @@ containers=$(docker ps -q)
 for c_id in ${containers[@]}; do
 	hostname=$(docker exec $c_id hostname)
 	if [[ $hostname == "host_lsirigna-1" ]]; then
+		echo "$(hostname) :" 
 		docker exec $c_id sh -c "ip a | grep eth1 | grep inet | cut -d ' ' -f 6"
 	elif [[ $hostname == "host_lsirigna-2" ]]; then
 		docker exec $c_id sh -c "ip a | grep eth1 | grep inet | cut -d ' ' -f 6"
