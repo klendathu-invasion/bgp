@@ -10,9 +10,13 @@ RR (route reflection)
 leafs (VTEP)
 
 eth = ethernet
-lo = loop (boucle locale / localhost)
+lo = loopback (boucle locale / localhost)
+
+VTYSH is a shell for FRR daemons.
 
 ICMP = ?
+
+OSPF = Dans OSPF, chaque routeur établit des relations d'adjacence avec ses voisins immédiats en envoyant des messages hello à intervalle régulier. Chaque routeur communique ensuite la liste des réseaux auxquels il est connecté par des messages Link-state advertisements (LSA) propagés de proche en proche à tous les routeurs du réseau.
 
 UNICAST = communication 1 vers 1
 MULTICAST = communication 1 vers groupe
