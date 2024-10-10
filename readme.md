@@ -4,6 +4,12 @@ BGP (Border Gateway Protocol) est le principal protocole supportant l'Internet e
 
 L'EVPN est une extension de BGP, qui fournit principalement un acheminement à voies multiples par le biais du modèle de multihébergement. Sa redondance permet à un dispositif de se connecter à deux ou plusieurs dispositifs en amont et d'utiliser tous les liens pour la transmission du trafic.
 
+EVPN Route Type 1: Ethernet Auto-Discovery (A-D) Route
+EVPN Route Type 2: MAC/IP Advertisement Route
+EVPN Route Type 3: Inclusive Multicast Ethernet Tag Route
+EVPN Route Type 4: Ethernet Segment Route
+EVPN Route Type 5: IP Prefix Route
+
 BRIDGE
 
 RR (route reflection)

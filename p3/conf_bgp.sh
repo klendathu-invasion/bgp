@@ -44,7 +44,7 @@ for c_id in ${containers[@]}; do
 		docker cp ./vtysh/router_3.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
 		docker exec $c_id ash -c "cat vtysh.conf | vtysh" && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	elif [[ $hostname == "router_lsirigna-4" ]]; then
-		docker cp ./vtysh/router_spine.vtysh $c_id:/vtysh.conf
+		docker cp ./vtysh/router_spine.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
 		docker exec $c_id ash -c "cat vtysh.conf | vtysh" && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	fi
 done
