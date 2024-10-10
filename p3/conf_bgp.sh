@@ -14,7 +14,7 @@ for c_id in ${containers[@]}; do
 	elif [[ $hostname == "host_lsirigna-3" ]]; then
 		docker exec $c_id sh -c "ip addr add 30.1.1.3/24 dev eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 	elif [[ $hostname == "router_lsirigna-1" ]]; then
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
@@ -24,7 +24,7 @@ for c_id in ${containers[@]}; do
 		docker cp ./vtysh/router_1.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
 		docker exec $c_id ash -c "cat vtysh.conf | vtysh" && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	elif [[ $hostname == "router_lsirigna-2" ]]; then
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
@@ -34,7 +34,7 @@ for c_id in ${containers[@]}; do
 		docker cp ./vtysh/router_2.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
 		docker exec $c_id ash -c "cat vtysh.conf | vtysh" && echo -e "VTYSH CONFIGURATION LOADED : ${GREEN}OK${END}" || echo -e "VTYSH CONFIGURATION LOADED  : ${RED}KO${END}"
 	elif [[ $hostname == "router_lsirigna-3" ]]; then
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dev eth0 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
