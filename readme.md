@@ -12,6 +12,7 @@ leafs (VTEP)
 eth = ethernet
 lo = loop (boucle locale / localhost)
 
+ICMP = ?
 
 UNICAST = communication 1 vers 1
 MULTICAST = communication 1 vers groupe
@@ -44,3 +45,10 @@ soit
   c/ 192 -> 224
   d/ 224 -> 240
   e/ 240 -> 256
+
+
+commandes show
+	arp -a (mac et ip local)
+	ip a (show toutes les interfaces réseaux)
+
+
