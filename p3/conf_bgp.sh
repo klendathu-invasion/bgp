@@ -7,6 +7,7 @@ GREEN='\033[1;92m'
 containers=$(docker ps -q)
 for c_id in ${containers[@]}; do
 	hostname=$(docker exec $c_id hostname)
+	echo $hostname;
 	if [[ $hostname == "host_tlermoul-1" ]]; then
 		docker exec $c_id sh -c "ip addr add 30.1.1.1/24 dev eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 	elif [[ $hostname == "host_tlermoul-2" ]]; then
