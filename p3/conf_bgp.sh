@@ -16,9 +16,9 @@ for c_id in ${containers[@]}; do
 	elif [[ $hostname == "router_lsirigna-1" ]]; then
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add vxlan10 type vxlan id 10 dev eth1 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
-		docker exec $c_id sh -c "brctl addif br0 eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "brctl addif br0 eth0" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "brctl addif br0 vxlan10" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 
 		docker cp ./vtysh/router_1.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
@@ -26,9 +26,9 @@ for c_id in ${containers[@]}; do
 	elif [[ $hostname == "router_lsirigna-2" ]]; then
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add vxlan10 type vxlan id 10 dev eth1 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
-		docker exec $c_id sh -c "brctl addif br0 eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "brctl addif br0 eth0" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "brctl addif br0 vxlan10" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 
 		docker cp ./vtysh/router_2.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"
@@ -36,9 +36,9 @@ for c_id in ${containers[@]}; do
 	elif [[ $hostname == "router_lsirigna-3" ]]; then
 		docker exec $c_id sh -c "ip link add br0 type bridge" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev br0 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
-		docker exec $c_id sh -c "ip link add name vxlan10 type vxlan id 10 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip link add vxlan10 type vxlan id 10 dev eth1 dstport 4789" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set dev vxlan10 up" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
-		docker exec $c_id sh -c "brctl addif br0 eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "brctl addif br0 eth0" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "brctl addif br0 vxlan10" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 
 		docker cp ./vtysh/router_3.vtysh $c_id:/vtysh.conf && echo -e "COPY VTYSH CONFIGURATION : ${GREEN}OK${END}" || echo -e "COPY VTYSH CONFIGURATION : ${RED}KO${END}"

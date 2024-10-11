@@ -14,6 +14,7 @@ BRIDGE
 
 RR (route reflection)
 leafs (VTEP)
+SPINE (le routeur du dessus)
 
 eth = ethernet
 lo = loopback (boucle locale / localhost)
@@ -60,5 +61,16 @@ soit
 commandes show
 	arp -a (mac et ip local)
 	ip a (show toutes les interfaces réseaux)
+
+	do sh ip route
+	do sh bgp summary
+	do sh bgp l2vpn evpn
+
+PARTIE 2 :
+https://www.youtube.com/watch?v=u1ka-S6F9UI&ab_channel=AhmadNadeem
+PARTIE 3 :
+https://www.youtube.com/watch?v=Ek7kFDwUJBM&ab_channel=AhmadNadeem
+
+
 
 
