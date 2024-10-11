@@ -1,4 +1,5 @@
-configure
+configure terminal
+
 no ipv6 forwarding
 
 interface eth0
@@ -14,14 +15,19 @@ interface eth2
 exit
 
 interface lo
- ip address 1.1.1.1/24
+ ip address 1.1.1.1/32
 exit
 
 router bgp 1
+
  neighbor DYNAMIC peer-group
+
  neighbor DYNAMIC remote-as 1
+
  neighbor DYNAMIC update-source lo
- bgp listen range 1.1.1.0/29 peer-group DYNAMIC
+
+ bgp listen range 1.1.1.0/24 peer-group DYNAMIC
+
  address-family l2vpn evpn
   neighbor DYNAMIC activate
   neighbor DYNAMIC route-reflector-client
@@ -29,5 +35,5 @@ router bgp 1
 exit
 
 router ospf
-  network 0.0.0.0/0 area 0   
+ network 0.0.0.0/0 area 0
 exit
