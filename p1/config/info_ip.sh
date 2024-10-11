@@ -15,8 +15,8 @@ for c_id in ${containers[@]}; do
 	if [[ $hostname == $1 ]]; then
 		echo -e "${GREEN}${1}${GREEN}"
 		echo -e "${YELLOW}MAC ADDRESS : ${END}"
-		docker exec $c_id sh -c "ip -o -f link addr show | cut -d ' ' -f 2,14"
+		docker exec $c_id sh -c "ip -o -f link addr show | sed -e's/  */ /g' | cut -d ' ' -f 2,14"
 		echo -e "${YELLOW}IPV4 ADDRESS${END}"
-		docker exec $c_id sh -c "ip -o addr show | grep -v inet6 | cut -d ' ' -f 2,7"
+		docker exec $c_id sh -c "ip -o addr show | grep -v inet6 | sed -e's/  */ /g' | cut -d ' ' -f 2,7"
 	fi
 done
