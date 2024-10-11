@@ -7,7 +7,7 @@ interface eth0
 exit
 
 interface lo
- ip address 1.1.1.2/32
+ ip address 1.1.1.6/32
  ip ospf area 0
 exit
 
