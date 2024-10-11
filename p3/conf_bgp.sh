@@ -9,11 +9,11 @@ for c_id in ${containers[@]}; do
 	hostname=$(docker exec $c_id hostname)
 	echo $hostname;
 	if [[ $hostname == "host-tlernoul-1" ]]; then
-		docker exec $c_id sh -c "ip addr add 30.1.1.1/24 dev eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip addr add 30.1.1.1/24 dev eth0" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 	elif [[ $hostname == "host-tlernoul-2" ]]; then
-		docker exec $c_id sh -c "ip addr add 30.1.1.2/24 dev eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip addr add 30.1.1.2/24 dev eth0" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 	elif [[ $hostname == "host-tlernoul-3" ]]; then
-		docker exec $c_id sh -c "ip addr add 30.1.1.3/24 dev eth1" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
+		docker exec $c_id sh -c "ip addr add 30.1.1.3/24 dev eth0" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 	elif [[ $hostname == "router-tlernoul-4" ]]; then
 		docker exec $c_id sh -c "ip link add name br0 type bridge" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
 		docker exec $c_id sh -c "ip link set up dev br0" && echo -e "${GREEN}OK${END}" || echo -e "${RED}KO${END}"
