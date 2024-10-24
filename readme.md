@@ -43,7 +43,7 @@ découpage MAC :
 	4/ 24 bits : identifiant unique constructeur
 	Total 48 bits, 6 octet, donc 6 hex
 
-découpage des classes
+découpage des classes ip
   a/ 0 -> 128
   b/ 128 -> 128+64
   c/ 128+64 -> 128+64+32
@@ -58,13 +58,17 @@ soit
   e/ 240 -> 256
 
 
+
 commandes show
 	arp -a (mac et ip local)
 	ip a (show toutes les interfaces réseaux)
+	brctl showmacs br0
 
-	do sh ip route
-	do sh bgp summary
-	do sh bgp l2vpn evpn
+	vtysh
+		configure ~> pour configurer
+		do sh ip route
+		do sh bgp summary
+		do sh bgp l2vpn evpn
 
 PARTIE 2 :
 https://www.youtube.com/watch?v=u1ka-S6F9UI&ab_channel=AhmadNadeem
