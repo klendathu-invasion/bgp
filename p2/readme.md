@@ -52,8 +52,5 @@ Nous modifions la commande de création d'une vxlan par :
 Au lieu de fixer une ip locale et une remote, nous ajoutons un group, sur chacun des routeurs qui appartiendront à ce groupe. (attention la plage réservée pour les groupes est : 224.0.0.0 à 239.255.255.255)
 
 
-
 Pour voir les détails des interfaces réseaux :
 	`ip a`
-Pour afficher les adresses macs des périphériques connectés au br0
-	`brctl showmacs br0`

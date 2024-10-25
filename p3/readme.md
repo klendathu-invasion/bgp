@@ -117,19 +117,14 @@ exit
 
 ## Verfier les routes et les devices
 
-lancer le shell vtysh :
-	`vtysh`
-Pour voir A COMPLETER :
-	`do sh ip route`
-Pour voir A COMPLETER :
-	`do sh bgp summary`
-Pour voir A COMPLETER :
-	`do sh bgp l2vpn evpn`
+Le Shell `vtysh` permet également d'obtenir des informations intéressantes sur les routeurs :
+```
+	do sh ip route
+	do sh bgp summary
+	do sh bgp l2vpn evpn
+```
 Pour voir les détails des interfaces réseaux :
 	`ip a`
-Pour afficher les adresses macs des périphériques connectés au br0
-	`brctl showmacs br0`
-
 
 ## vérifier le liens entre les hosts
 

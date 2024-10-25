@@ -5,10 +5,6 @@ RED='\033[1;91m'
 GREEN='\033[1;92m'
 YELLOW='\033[1;93m'
 
-
-
-
-
 containers=$(docker ps -q)
 for c_id in ${containers[@]}; do
 	hostname=$(docker exec $c_id hostname)
